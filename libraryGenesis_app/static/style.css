@@ -1,0 +1,10 @@
+.navigation-bar {
+    width: 320px;
+}
+
+.gradient {
+    background: linear-gradient(180deg, rgba(255,229,167,1) 0%, rgba(255,175,0,1) 100%);
+    width: fit-content;
+    padding: 5px 25px;
+    border-radius: 100px;
+}

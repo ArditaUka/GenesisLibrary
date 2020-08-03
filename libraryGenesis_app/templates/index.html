@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenesisLibrary</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container-fluid">
+     
+        <div class="row dashboard-header mt-3">
+            <div class="col-sm">
+            <h1 class="gradient">GenesisLibrary</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm text-right">
+                <a href="#">About</a>
+            </div>
+            <div class="col-sm-8 mr-3 text-right">
+                <a href="#">Sign in</a>
+            </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="navigation-bar ml-4">
+                <h2 class="mt-5">Genres</h2>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Pop" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >
+                        Action and Adventure</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Rock" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Classics</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Country" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Comic Book or Graphic Novel</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Hip-Hop" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Detective and Mystery</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "RnB" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Fantasy</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Festivals" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Historical Fiction</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "NBA" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Horror</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "NHL" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Literary Fiction</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "NCAA Basketball" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Romance</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "MLB" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Science Fiction (Sci-Fi)</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Motorsports" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Short Stories</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Musicals" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Suspense and Thrillers</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Plays" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Women's Fiction</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Comedy" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Biographies and autobiographies</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Family" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Cookbooks</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Family" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Essays</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Family" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >History</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Family" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Memoir</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Family" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Poetry</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Family" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >Self-Help</a>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" 
+                        {% comment %} {% for event in events  %}{% if event.category == "Family" %}href="/display_category/{{event.category}}"{% endif %}{% endfor %} {% endcomment %}
+                        >True Crime</a>
+                    </nav>
+            </div>
+            <div class="container mt-5">
+                <div class="row mt-5">
+                    
+                        {% for event in events %}
+                        <div class="col-sm-4  mb-5 events">
+                        <a href="/display/{{event.id}}">
+                        <figure>
+                            <img src="{% static event.category %}{{".jpg"}}" alt="Event Image" width="250" height="150">
+                            
+                            <figcaption>
+                                {{event.name}}<br>
+                                {{event.location}}<br>  
+                                {{event.start_date}}
+                            </figcaption>
+                        </figure>
+                        </div>
+                        </a>
+                        {% endfor %}
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
