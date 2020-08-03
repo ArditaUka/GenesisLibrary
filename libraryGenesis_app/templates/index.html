@@ -14,16 +14,30 @@
      
         <div class="row dashboard-header mt-3">
             <div class="col-sm">
-            <h1 class="gradient">GenesisLibrary</h1>
+                <h2 class="gradient"><a class="no-decoration" href="/">GenesisLibrary</a></h2>
             </div>
-            <div class="row">
-                <div class="col-sm text-right">
-                <a href="#">About</a>
+            <div class="row  text-right extra-width m-1">
+                <div class="col-sm-4  pl-1  text-left">
+                    <a href="/about">About Us</a>
+                </div>
+                {% if request.session.uid %}
+                    
+                    <div class="col-sm-3 mr-4 text-left">
+                    <a href="#">Borrowed</a>
+                    </div>
+                    
+                    <div class="col-sm-4 text-left">
+                    <a href="/logout">Log out</a>
+                    </div>
+                    
+                    
+                {% else %}
+                <div class="col-sm-3 p-1 text-left">
+                    <a href="/display_login">Sign in</a>
+                </div>
+                {% endif %}
             </div>
-            <div class="col-sm-8 mr-3 text-right">
-                <a href="#">Sign in</a>
-            </div>
-            </div>
+            
             
         </div>
         <div class="row">
