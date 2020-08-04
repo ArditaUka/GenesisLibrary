@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html manifest="cache.appache">
+<head>
+    <title>GenesisLibrary</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Niramit:300i,400,600&amp;subset=latin-ext,thai,vietnamese"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora&amp;subset=vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200i,300,300i,400,400i,600,600i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <div class="row dashboard-header mt-3">
+            <div class="col-sm">
+                <h2 class="gradient gradient-about"><a class="no-decoration" href="/">GenesisLibrary</a></h2>
+            </div>
+            <div class="row  text-right extra-width m-1">
+                <div class="col-sm-4 p-1 pl-1 mr-2 text-left">
+                    <a href="/about">About Us</a>
+                </div>
+                {% if request.session.uid %}
+                    <div class="col-sm-3 text-left">
+                    <a href="/logout">Log out</a>
+                    </div>
+                    
+                {% else %}
+                <div class="col-sm-3 p-1 text-left">
+                    <a href="/display_login">Sign in</a>
+                </div>
+                {% endif %}
+            </div>
+            
+            
+        </div>
+
+<!-- ****************************************2************************************************* -->
+
+<main>
+    <section class="about-us-banner small-banner">
+      <h4>About Us</h4>
+    </section>
+    <!--***************************************4********************************************-->
+    <section class="e1 our-commitment text-center grey-background">
+        <div class="container">
+            <h1 class="main-title">Our commitment</h1>
+            <div class="m1">
+                <div class="w1 about-description">
+                    <div class="m2">
+                        <h3><b>As welcoming, comfortable and accessible as possible</b></h3>
+                        <p class="par">Everyone is different, so we have classified the books by genre to make it easier for you to find what you want.</p>
+                    </div>
+                    <div class="m2">
+                        <h3><b>Do what’s right</b></h3>
+                        <p class="par">We believe that borrowing a book from the library should be simple and stress free, so our plan is to design more user-friendly automatic library notices to help you keep track of loans, fines, reservations.</p>
+                    </div>
+                </div>
+                <div class="w2 about-description">
+                    <div class="m2">
+                        <h3><b>Diversity Strengthens Us</b></h3>
+                        <p class="par">More than ever, we must prioritize our commitment and live this value in our work. Racial injustice is in the very fabric of our communities and institutions.</p>
+                    </div>
+                    <div class="m2">
+                        <h3><b>Creating a more just and equitable society</b></h3>
+                        <p class="par">The library is committed to creating a more just and equitable society by fostering excellence in higher education. We also seek to develop a library work environment that values diversity, equity, and inclusion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="our-team-section text-center">
+        <div class="container">
+            <h1 class="main-title">Meet our team</h1>
+            <p class="about-us-p">We have an amazing and very creative team</p>
+            <div class="our-team">
+                <div class="team-member text-center">
+                    <div class="member-image">
+                        <img src="{% static "ardita.jpg" %}" alt="Our profile picture" >
+                    </div>
+                    <div class="member-info">
+                        <h4>Ardita Uka</h4>
+                        <p class="position">Librarian</p>
+                    </div>
+                </div>
+                <div class="team-member text-center">
+                    <div class="member-image">
+                        <img src="{% static "donika.jpg" %}" alt="Our profile picture" >
+                    </div>
+                    <div class="member-info">
+                        <h4>Donik&#235; Abazi</h4>
+                        <p class="position">Librarian</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+</div>
+</body>
+</html>
