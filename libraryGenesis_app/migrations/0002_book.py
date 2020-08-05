@@ -23,11 +23,6 @@ class Migration(migrations.Migration):
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('users', models.ManyToManyField(related_name='books', to='libraryGenesis_app.User')),
 
-                ('title', models.CharField(max_length=50)),
-                ('genre', models.CharField(max_length=45)),
-                ('author', models.CharField(max_length=100)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
 
             ],
         ),

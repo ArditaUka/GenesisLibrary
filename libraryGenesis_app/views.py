@@ -6,7 +6,11 @@ import bcrypt
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    books = Book.objects.all()
+    context = {
+        "books":books
+    }
+    return render(request, "index.html", context)
 def display_login(request):
     return render(request, 'signin.html')
 
@@ -70,7 +74,7 @@ def admin_login(request):
             # return HttpResponse(request.POST['email'])
             if request.POST['email'] == "admin@gmail.com":
                 request.session['uid'] = logged_user.id
-                return redirect('/admin_dashboard')
+                return redirect('/book')
             else:
                 messages.error(request,"Wrong initials for admin")    
         else:
@@ -79,8 +83,6 @@ def admin_login(request):
         messages.error(request,"Email address is not registered yet.")
     return redirect('/admin')
 
-def admin_dashboard(request):
-    return render(request, "admin.html")
 
 
 def book(request):
@@ -167,3 +169,54 @@ def delete(request, book_id):
     book.delete()
 
     return redirect('/book')
+
+
+def display_genre(request, genre):
+    books = Book.objects.filter(genre=genre)
+    all_books = Book.objects.all()
+    
+    context = {
+        'genre_books': books,
+        'books': all_books
+    }
+    return render(request,'books_genre.html', context)
+
+def display(request, book_id):
+    book = Book.objects.get(id=book_id)
+    
+    context = {
+        'book': book
+    }
+    return render(request,'display.html', context)
+
+def borrow_info(request, book_id):
+    book = Book.objects.get(id=book_id)
+    context = {
+        'book': book
+    }
+    return render(request, 'borrow_info.html', context)
+
+def borrow(request, book_id):
+    request.session['redirect'] = (f'borrow_info/{book_id}')
+    return redirect('/display_login')
+
+def borrow_book(request, book_id):
+    user = User.objects.get(id=request.session['uid'])
+    book = Book.objects.get(id=book_id)
+    user.books.add(book)
+    return redirect('/')
+
+def display_borrowed(request):
+    books= Book.objects.all()
+    user = User.objects.get(id = request.session['uid'])
+    ordered_books = user.books.all()
+    context={
+        "books": ordered_books
+    }
+    return render(request,"display_borrowed.html", context)
+
+def return_book(request, book_id):
+    user = User.objects.get(id=request.session['uid'])
+    book = Book.objects.get(id=book_id)
+    user.books.remove(book)
+    return redirect('/')
