@@ -27,6 +27,29 @@ class UserManager(models.Manager):
             errors["password"] = "Passwords do not match"
         return errors    
 
+
+class BookManager(models.Manager):
+    def validator(self, postData):
+        errors={}
+        if len(postData["title"])<3:
+            errors["title"] = "Title must be at least 3 characters long"
+        if len(postData["author"])<3:
+            errors["author"] = "Author must be at least 3 characters long"
+        if len(postData["days_avaliable"])<1:
+            errors["days_avaliable"] = "You must provide a number of days avaliable to read the book"
+        if len(postData["price"])<1:
+            errors["price"] = "You must provide a price per book"
+        if len(postData["about"])<5:
+            errors["price"] = "Description must be at least 3 characters long"
+        if postData['publish_date'] == "":
+            errors["publish_date"] = "Publish Date must be filled in."
+        else:
+            converted_publish_date = datetime.strptime(postData['publish_date'], '%Y-%m-%d')
+            if converted_publish_date > datetime.now():
+                errors['publish_date'] = "Invalid Date (must be a past date)"
+        return errors
+
+
 class User(models.Model):
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
@@ -35,3 +58,17 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     objects = UserManager()
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    genre = models.CharField(max_length=100)
+    publish_date = models.DateField()
+    price = models.IntegerField()
+    days_avaliable = models.IntegerField()
+    about = models.TextField()
+    users = models.ManyToManyField(User, related_name="books")
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
+    objects = BookManager()

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row dashboard-header mt-3">
+            <div class="col-sm">
+                <h2 class="gradient"><a class="no-decoration" href="/">GenesisLibrary</a></h2>
+            </div>
+            <div class="row  text-right extra-width m-1">
+                <div class="col-sm-4  pl-1  text-left">
+                    <a href="/about">About Us</a>
+                </div>
+                    <div class="col-sm-3 mr-4 text-left">
+                    <a href="#">Borrowed</a>
+                    </div>
+                    
+                    <div class="col-sm-4 text-left">
+                    <a href="/logout">Log out</a>
+                    </div>
+            </div>
+        </div>
+        {% if messages %}
+            <ul class="messages mt-3">    
+                {% for message in messages %}    
+                    <li style="color:red">{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="col-sm-6">
+        <form class="mt-5" method="post" action="/update/{{book.id}}">
+                    {% csrf_token %}
+                    
+                    <div class="form-group row mt-5">
+                        <label for="name" class="col-sm-2 col-form-label">Title: </label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control col-sm-8" placeholder="Book Title" name="title" value="{{book.title}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="author" class="col-sm-2 col-form-label">Author: </label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control col-sm-8" placeholder="Author" name="author" value="{{book.author}}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="publish_date" class="col-sm-2 col-form-label">Publish date: </label>
+                        <div class="col-sm-10">
+                        <input type="date" class="form-control col-sm-5" name="publish_date" value="{{book.publish_date|date:"Y-m-d"}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="genre" class="col-sm-2 col-form-label">Genre: </label>
+                        <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect02" name="genre">
+                                    <option value="{{book.genre}}" selected>{{book.genre}}</option>
+                                    <option value="ActionAdventure">Action and Adventure</option>
+                                    <option value="Classics">Classics</option>
+                                    <option value="ComicGraphic">Comic Book or Graphic Novel</option>
+                                    <option value="DetectiveMystery">Detective and Mystery</option>
+                                    <option value="Fantasy">Fantasy</option>
+                                    <option value="HistoricalFiction">Historical Fiction</option>
+                                    <option value="Horror">Horror</option>
+                                    <option value="LiteraryFiction">Literary Fiction</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="ScienceFiction">Science Fiction (Sci-Fi)</option>
+                                    <option value="ShortStories">Short Stories</option>
+                                    <option value="SuspenseThrillers">Suspense and Thrillers</option>
+                                    <option value="WomenFiction">Women's Fiction</option>
+                                    <option value="BiographiesAutobiographies">Biographies and Autobiographies</option>
+                                    <option value="CookBooks">Cookbooks</option>
+                                    <option value="Essays">Essays</option>
+                                    <option value="History">History</option>
+                                    <option value="Family">Memoir</option>
+                                    <option value="Poetry">Poetry</option>
+                                    <option value="SelfHelp">Self Help</option>
+                                    <option value="TrueCrime">True Crime</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="inputGroupSelect02" name="options">Options</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="about" class="col-sm-2 col-form-label">About: </label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control col-sm-8" placeholder="Description" name="about" value="{{book.about}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="days_avaliable" class="col-sm-2 col-form-label">Days avaliable per book: </label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control col-sm-8" placeholder="days avaliable" name="days_avaliable" value="{{book.days_avaliable}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="price" class="col-sm-2 col-form-label">Price per book: </label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control col-sm-8" placeholder="Price per book" name="price" value="{{book.price}}">
+                        </div>
+                    </div>
+                    <div class="text-right margin-btn-primary">
+                        <a class="btn btn-primary" href="/book" role="button">Cancel</a>
+                        <button class="btn btn-primary" type="submit">Update</button>
+                        <a class="btn btn-danger" href="/delete/{{book.id}}" role="button">Delete</a>
+                    </div>
+                </form>
+        </div>
+
+    </div>
+</body>
+</html>
