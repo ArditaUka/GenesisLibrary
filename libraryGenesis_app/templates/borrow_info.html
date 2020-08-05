@@ -16,9 +16,8 @@
                 <h2 class="gradient"><a class="no-decoration" href="/">GenesisLibrary</a></h2>
             </div>
             <div class="col-sm-6 search-form">
-                <form action="/" method="get">
-                    {% csrf_token %}
-                    <input type="text" name="q" placeholder="Search by title or author" id="search" value="{{ request.GET.q }}"/>
+                <form class="search" action="/" method="get">
+                    <input type="text" name="q" placeholder="Search by title" id="search" value="{{ request.GET.q }}"/>
                     <button><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>

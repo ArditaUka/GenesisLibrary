@@ -7,6 +7,9 @@ import bcrypt
 # Create your views here.
 def index(request):
     books = Book.objects.all()
+    query= request.GET.get("q")
+    if query:
+        books = books.filter(title__icontains=query)
     context = {
         "books":books
     }
@@ -86,10 +89,12 @@ def admin_login(request):
 
 
 def book(request):
-    books=Book.objects.all()
+    books = Book.objects.all()
+    query= request.GET.get("q")
+    if query:
+        books = books.filter(title__icontains=query)
     context = {
         "books":books
-
     }
     return render(request, "book.html", context)
 
@@ -173,6 +178,9 @@ def delete(request, book_id):
 
 def display_genre(request, genre):
     books = Book.objects.filter(genre=genre)
+    query= request.GET.get("q")
+    if query:
+        books = books.filter(title__icontains=query)
     all_books = Book.objects.all()
     
     context = {
